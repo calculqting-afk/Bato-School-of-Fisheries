@@ -5,134 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Bato School of Fisheries</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* ── TIMELINE ── */
-    .timeline {
-      position: relative;
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 10px 0;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 0; bottom: 0;
-      width: 3px;
-      background: linear-gradient(to bottom, var(--gold), var(--teal));
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-    .tl-item {
-      display: flex;
-      justify-content: flex-end;
-      padding-right: calc(50% + 28px);
-      margin-bottom: 36px;
-      position: relative;
-      opacity: 0;
-      transform: translateX(-24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .tl-item.right {
-      justify-content: flex-start;
-      padding-right: 0;
-      padding-left: calc(50% + 28px);
-      transform: translateX(24px);
-    }
-    .tl-item.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .tl-dot {
-      position: absolute;
-      left: 50%;
-      top: 16px;
-      width: 16px; height: 16px;
-      background: var(--gold);
-      border: 3px solid var(--white);
-      border-radius: 50%;
-      transform: translateX(-50%);
-      box-shadow: 0 0 0 3px var(--gold);
-      z-index: 2;
-    }
-    .tl-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 16px 20px;
-      max-width: 300px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.09);
-      border-top: 4px solid var(--teal);
-    }
-    .tl-item.right .tl-card { border-top-color: var(--gold); }
-    .tl-year {
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--teal);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 5px;
-    }
-    .tl-item.right .tl-year { color: var(--gold); }
-    .tl-card h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
-    .tl-card p  { font-size: 12.5px; color: var(--gray); line-height: 1.6; }
-
-    @media (max-width: 600px) {
-      .timeline::before { left: 18px; }
-      .tl-item, .tl-item.right {
-        justify-content: flex-start;
-        padding-left: 48px;
-        padding-right: 0;
-        transform: translateY(16px);
-      }
-      .tl-dot { left: 18px; }
-      .tl-card { max-width: 100%; }
-    }
-
-    /* ── ACHIEVEMENTS ── */
-    .achieve-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .achieve-card {
-      background: var(--navy);
-      border-radius: 14px;
-      padding: 26px 22px;
-      text-align: center;
-      border-bottom: 4px solid var(--gold);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .achieve-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.18); }
-    .achieve-icon { font-size: 36px; margin-bottom: 12px; display: block; }
-    .achieve-card h4 { font-size: 15px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
-    .achieve-card p  { font-size: 12.5px; color: rgba(255,255,255,0.78); line-height: 1.7; }
-
-    /* ── CLUBS ── */
-    .clubs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-      gap: 14px;
-    }
-    .club-pill {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.08);
-      border: 1.5px solid rgba(255,255,255,0.15);
-      border-radius: 50px;
-      padding: 12px 18px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--white);
-      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-    }
-    .club-pill:hover {
-      background: rgba(240,165,0,0.15);
-      border-color: var(--gold);
-      transform: translateY(-2px);
-    }
-    .club-pill span { font-size: 20px; flex-shrink: 0; }
-  </style>
 </head>
 <body>
 
@@ -216,7 +88,7 @@
             <li><b>Plus Code:</b> 8QFR+48C Bato, Leyte</li>
             <li><b>School Type:</b> Public Senior High School</li>
             <li><b>Division:</b> DepEd Division of Leyte</li>
-            <li><b>Tracks:</b> Academic · TVL · Sports · Arts </li>
+            <li><b>Tracks:</b> Academic · TVL · Sports · Arts</li>
           </ul>
         </div>
       </div>
@@ -235,7 +107,7 @@
     </div>
   </section>
 
-  <!-- SCHOOL FACILITIES — clean cards, no photo placeholders -->
+  <!-- SCHOOL FACILITIES -->
   <section class="sec-light">
     <div class="container">
       <h2 class="sec-title">School Facilities</h2>
@@ -244,7 +116,6 @@
         <div class="card reveal-card"><div class="card-icon">🏫</div><h3>Science Labs</h3><p>Fully equipped biology, chemistry, and fisheries labs for hands-on learning and live experiments.</p></div>
         <div class="card reveal-card"><div class="card-icon">📚</div><h3>Library</h3><p>Over 5,000 volumes plus digital resources accessible to all students for research and study.</p></div>
         <div class="card reveal-card"><div class="card-icon">💻</div><h3>Computer Rooms</h3><p>Four computer labs with high-speed internet for ICT subjects, research, and digital projects.</p></div>
-        
       </div>
     </div>
   </section>
@@ -256,40 +127,35 @@
       <p class="sec-desc" style="color:rgba(255,255,255,0.7);">BSF has consistently proven its excellence in academics, arts, sports, and technical education across division, regional, and national competitions.</p>
       <div class="achieve-grid">
         <div class="achieve-card reveal-card">
-          <span class="achieve-icon">🏆</span>
-          <h4>Regional Sports Champion</h4>
-          <p>Multiple gold medals in DepEd Leyte Division and Regional Meet competitions across various sports disciplines.</p>
+          <span class="achieve-icon">Icon</span>
+          <h4>Title</h4>
+          <p>.</p>
         </div>
         <div class="achieve-card reveal-card">
-          <span class="achieve-icon">🎭</span>
-          <h4>Arts Festival Winner</h4>
-          <p>Consistent top placer in the Schools Division Arts Festival, excelling in theater, dance, and visual arts.</p>
+          <span class="achieve-icon">Icon</span>
+          <h4>Title</h4>
+          <p>.</p>
         </div>
         <div class="achieve-card reveal-card">
-          <span class="achieve-icon">🐟</span>
-          <h4>Fisheries Excellence</h4>
-          <p>Recognized as a model school for fisheries and aquaculture education in the DepEd Division of Leyte.</p>
+          <span class="achieve-icon">Icon</span>
+          <h4>Title</h4>
+          <p>.</p>
         </div>
         <div class="achieve-card reveal-card">
-          <span class="achieve-icon">📜</span>
-          <h4>TESDA Accredited</h4>
-          <p>Fully TESDA-accredited programs offering NC I and NC II certifications in fisheries and food processing.</p>
+          <span class="achieve-icon">Icon</span>
+          <h4>Title</h4>
+          <p>.</p>
         </div>
         <div class="achieve-card reveal-card">
-          <span class="achieve-icon">📚</span>
-          <h4>Academic Excellence</h4>
-          <p>Consistent honor students and top performers in division and regional academic competitions every year.</p>
+          <span class="achieve-icon">Icon</span>
+          <h4>Title</h4>
+          <p>.</p>
         </div>
         <div class="achieve-card reveal-card">
-          <span class="achieve-icon">🌿</span>
-          <h4>Green School Award</h4>
-          <p>Recipient of DepEd's Brigada Eskwela recognition for maintaining a clean, green, and sustainable campus.</p>
+          <span class="achieve-icon">Icon</span>
+          <h4>Title</h4>
+          <p>.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-
       </div>
     </div>
   </section>
@@ -300,13 +166,12 @@
       <h2 class="sec-title white">Clubs &amp; Organizations</h2>
       <p class="sec-desc" style="color:rgba(255,255,255,0.7);">BSF offers a wide range of student organizations that develop leadership, creativity, and community spirit.</p>
       <div class="clubs-grid">
-        <div class="club-pill reveal-card"><span></span># </div>
         <div class="club-pill reveal-card"><span></span>#</div>
         <div class="club-pill reveal-card"><span></span>#</div>
         <div class="club-pill reveal-card"><span></span>#</div>
         <div class="club-pill reveal-card"><span></span>#</div>
         <div class="club-pill reveal-card"><span></span>#</div>
-
+        <div class="club-pill reveal-card"><span></span>#</div>
       </div>
     </div>
   </section>
@@ -356,15 +221,13 @@
 
 <script src="script.js"></script>
 <script>
-  // Timeline scroll-reveal animation
+  // Timeline scroll-reveal
   var tlItems = document.querySelectorAll('.tl-item');
   if (tlItems.length) {
     var tlObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry, i) {
         if (entry.isIntersecting) {
-          setTimeout(function() {
-            entry.target.classList.add('visible');
-          }, i * 120);
+          setTimeout(function() { entry.target.classList.add('visible'); }, i * 120);
           tlObserver.unobserve(entry.target);
         }
       });
