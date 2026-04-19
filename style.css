@@ -437,18 +437,33 @@ img { max-width: 100%; display: block; }
 .h-item p  { font-size: 13px; color: var(--gray); line-height: 1.7; }
 
 
-/* ── VIDEO WRAPPER ── */
+/* ── VIDEO WRAPPER (FIXED & IMPROVED) ── */
 .video-wrapper {
-  max-width: 560px;
+  position: relative;
+  width: 100%;
+  max-width: 650px;
   margin: 0 auto;
+  aspect-ratio: 16 / 9;
   border: 2px solid var(--gold);
-  border-radius: 10px;
+  border-radius: 18px;
   overflow: hidden;
+  background: #000;
   box-shadow: 0 0 0 6px rgba(240, 165, 0, 0.15);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-.video-wrapper:hover { box-shadow: 0 0 0 8px rgba(240, 165, 0, 0.25); }
-.video-wrapper video { width: 100%; display: block; }
+
+.video-wrapper:hover {
+  box-shadow: 0 0 0 10px rgba(240, 165, 0, 0.25);
+  transform: scale(1.01);
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
 
 
 /* ── FOOTER ── */
