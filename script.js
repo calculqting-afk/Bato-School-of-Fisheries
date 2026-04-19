@@ -49,10 +49,10 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.nav-menu a').forEach(function (link) {
     if (link.getAttribute('href') === page) link.classList.add('active');
     if (
-      (page === 'arts.html' || page === 'sports.html' || page === 'sptve.html') &&
+      (page === 'Arts.html' || page === 'Sports.html' || page === 'SPTVE.html') &&
       link.classList.contains('spa-btn') && link.getAttribute('href') === '#'
     ) link.classList.add('active');
-    if (page === 'strands.html' && link.getAttribute('href') === 'strands.html') {
+    if (page === 'Strands.html' && link.getAttribute('href') === 'Strands.html') {
       link.classList.add('active');
     }
   });
@@ -99,14 +99,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 5. ── TAB + SCROLL FROM URL PARAMS ──
-  // Handles links like: strands.html?tab=techpro#industrial-arts
-  var params = new URLSearchParams(window.location.search);
+  // 5. Tab + scroll from URL params
+  // Handles links like: Strands.html?tab=techpro#industrial-arts
+  var params   = new URLSearchParams(window.location.search);
   var tabParam = params.get('tab');
-  var hash = window.location.hash; // e.g. "#industrial-arts"
+  var hash     = window.location.hash;
 
   if (tabParam) {
-    // Activate the correct tab button
     var targetBtn = document.querySelector('.tab-btn[data-tab="' + tabParam + '"]');
     if (targetBtn) {
       document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
@@ -117,7 +116,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Scroll to the anchor after tab is shown
   if (hash) {
     setTimeout(function () {
       var target = document.querySelector(hash);
@@ -126,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var top = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
         window.scrollTo({ top: top, behavior: 'smooth' });
       }
-    }, 150); // small delay so tab panel renders first
+    }, 150);
   }
 
   // 6. Animated stat counters
@@ -185,6 +183,20 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', function () {
       hero.style.backgroundPositionY = 'calc(center + ' + (window.scrollY * 0.25) + 'px)';
     }, { passive: true });
+  }
+
+  // 10. Timeline scroll-reveal (about.html)
+  var tlItems = document.querySelectorAll('.tl-item');
+  if (tlItems.length) {
+    var tlObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry, i) {
+        if (entry.isIntersecting) {
+          setTimeout(function () { entry.target.classList.add('visible'); }, i * 120);
+          tlObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+    tlItems.forEach(function (el) { tlObserver.observe(el); });
   }
 
 });
