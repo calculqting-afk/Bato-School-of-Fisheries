@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strands — Bato School of Fisheries</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-brand">
+    <div class="logo-circle">
+      <img src="Pictures/bsflogoo.png" alt="BSF Logo">
+    </div>
+    <div class="school-name">
+      <span class="top">Bato School</span>
+      <span class="bot">of Fisheries</span>
+    </div>
+  </a>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="dropdown">
+      <a href="strands.html" class="spa-btn">Strands</a>
+      <div class="dropdown-box">
+        <span class="dropdown-label">Academic Track</span>
+        <a href="strands.html?tab=academic#humss">🎓 HUMSS &amp; Comm Arts</a>
+        <a href="strands.html?tab=academic#abm">💼 Business &amp; Entrep</a>
+        <a href="strands.html?tab=academic#stem">🔬 STEM</a>
+        <hr class="dropdown-divider">
+        <span class="dropdown-label">Tech-Vocational Track</span>
+        <a href="strands.html?tab=techpro#agriculture-fishery">🐟 Agriculture &amp; Fishery</a>
+        <a href="strands.html?tab=techpro#family-consumer">🏠 Family &amp; Consumer Sci</a>
+        <a href="strands.html?tab=techpro#industrial-arts">🛠️ Industrial Arts</a>
+        <hr class="dropdown-divider">
+        <span class="dropdown-label">Alternative Learning</span>
+        <a href="strands.html?tab=als#als-block">📋 ALS</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="spa-btn">SPA / SPTVE</a>
+      <div class="dropdown-box">
+        <span class="dropdown-label">Special Program in Arts</span>
+        <a href="arts.html">Special Program in Arts</a>
+        <hr class="dropdown-divider">
+        <span class="dropdown-label">Special Program in Sports</span>
+        <a href="sports.html">Special Program in Sports</a>
+        <hr class="dropdown-divider">
+        <span class="dropdown-label">Technical-Vocational</span>
+        <a href="sptve.html">Special Program in TVE</a>
+      </div>
+    </li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="page-body">
+
+  <div class="inner-hero strand-hero">
+    <div class="overlay"></div>
+    <div class="inner-hero-text">
+      <h1>Senior High School Programs</h1>
+      <p>Academic Track · Technical-Professional Track · ALS</p>
+    </div>
+  </div>
+
+  <section class="sec-dark">
+    <div class="container" style="text-align:center; max-width:820px;">
+      <p style="font-size:16px; color:rgba(255,255,255,0.88); line-height:1.9; margin-bottom:16px;">
+        All of these tracks will pave pathways that provide fundamental and essential courses that will help you excel in your desired profession in the future!
+      </p>
+      <p style="font-size:15px; color:var(--gold); font-weight:700; font-style:italic;">
+        "Here at Bato School of Fisheries, we instill values in our students and bring the very best version of themselves!"
+      </p>
+    </div>
+  </section>
+
+  <section class="sec-light">
+    <div class="container">
+      <h2 class="sec-title">Choose Your Track</h2>
+      <p class="sec-desc">Bato School of Fisheries offers two tracks under the Senior High School curriculum plus ALS.</p>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="academic">🎓 Academic Track</button>
+        <button class="tab-btn" data-tab="techpro">🔧 Technical-Professional Track</button>
+        <button class="tab-btn" data-tab="als">📋 ALS</button>
+      </div>
+
+      <!-- ACADEMIC TRACK -->
+      <div class="tab-panel active" id="academic">
+        <div class="strand-block">
+          <h3>🎓 Academic Track</h3>
+          <p>For students who plan to pursue college or university after Senior High School. Choose from three clusters based on your passion and career goal.</p>
+        </div>
+
+        <div class="strand-group" id="humss">
+          <div class="strand-header humss-color">
+            <span class="strand-badge">📖</span>
+            <div>
+              <h4>Arts, Social Science, and Humanities Cluster</h4>
+              <p>For students passionate about communication, culture, social issues, the arts, and public service.</p>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="card"><div class="card-icon">🗣️</div><h3>Communication Arts</h3><p>Develop strong oral and written communication skills for professional and civic life.</p></div>
+            <div class="card"><div class="card-icon">🌏</div><h3>Social Sciences</h3><p>Study of Philippine history, politics, governance, sociology, and culture.</p></div>
+            <div class="card"><div class="card-icon">🎨</div><h3>Humanities</h3><p>Explore literature, philosophy, creative writing, and the fine arts.</p></div>
+            <div class="card"><div class="card-icon">🎓</div><h3>Career Pathways</h3><p>Law, Education, Journalism, Political Science, Psychology, Social Work, Communication Arts.</p></div>
+          </div>
+        </div>
+
+        <div class="strand-group" id="abm">
+          <div class="strand-header abm-color">
+            <span class="strand-badge">💼</span>
+            <div>
+              <h4>Business and Entrepreneurship Cluster</h4>
+              <p>For students interested in business, finance, entrepreneurship, and management careers.</p>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="card"><div class="card-icon">📒</div><h3>Accountancy &amp; Finance</h3><p>Fundamentals of bookkeeping, financial statements, and accounting principles.</p></div>
+            <div class="card"><div class="card-icon">🏢</div><h3>Business Management</h3><p>Business structures, planning, and managing people and resources effectively.</p></div>
+            <div class="card"><div class="card-icon">💡</div><h3>Entrepreneurship</h3><p>Starting and managing a business, business planning, and financial literacy.</p></div>
+            <div class="card"><div class="card-icon">🏦</div><h3>Career Pathways</h3><p>Accountancy, Business Administration, Entrepreneurship, Marketing, Finance, Economics.</p></div>
+          </div>
+        </div>
+
+        <div class="strand-group" id="stem">
+          <div class="strand-header stem-color">
+            <span class="strand-badge">🔬</span>
+            <div>
+              <h4>Science, Technology, Engineering, and Mathematics (STEM)</h4>
+              <p>For students who love solving problems, conducting research, and exploring the natural world.</p>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="card"><div class="card-icon">🧬</div><h3>Biology &amp; Chemistry</h3><p>Cell biology, genetics, chemical reactions, and laboratory work for health and science careers.</p></div>
+            <div class="card"><div class="card-icon">⚡</div><h3>Physics &amp; Engineering</h3><p>Motion, energy, waves, and electricity — essential for engineering and technology courses.</p></div>
+            <div class="card"><div class="card-icon">📐</div><h3>Advanced Mathematics</h3><p>Pre-calculus, statistics, and discrete math for STEM fields.</p></div>
+            <div class="card"><div class="card-icon">💉</div><h3>Career Pathways</h3><p>Medicine, Nursing, Engineering, Architecture, Computer Science, Biology, Veterinary Science.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TECHNICAL-PROFESSIONAL TRACK -->
+      <div class="tab-panel" id="techpro">
+        <div class="strand-block">
+          <h3>🔧 Technical-Professional Track</h3>
+          <p>Equips students with practical skills. Graduates are ready for employment, entrepreneurship, or higher education.</p>
+        </div>
+
+        <div class="strand-group" id="agriculture-fishery">
+          <div class="strand-header fishery-color">
+            <span class="strand-badge">🐟</span>
+            <div>
+              <h4>Agriculture and Fishery Arts</h4>
+              <p>Our signature track rooted in the school's identity. Hands-on training in fisheries and food processing.</p>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="card"><div class="card-icon">🐟</div><h3>Fish Capture</h3><p>Learn proper fish capture methods, gear handling, and sustainable fishing practices.</p></div>
+            <div class="card"><div class="card-icon">🌊</div><h3>Fish Culture</h3><p>Aquaculture, fish pond management, fingerling production, and marine resource management.</p></div>
+            <div class="card"><div class="card-icon">🥫</div><h3>Fish/Food Processing</h3><p>Food preservation, processing techniques, and product development with TESDA NC II.</p></div>
+          </div>
+        </div>
+
+        <div class="strand-group" id="family-consumer">
+          <div class="strand-header he-color">
+            <span class="strand-badge">🏠</span>
+            <div>
+              <h4>Family and Consumer Science</h4>
+              <p>Practical skills in food service, baking, and household management.</p>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="card"><div class="card-icon">🧁</div><h3>Bakery Operation</h3><p>Bread, pastry, and cake production aligned with TESDA Bread and Pastry Production NC II.</p></div>
+            <div class="card"><div class="card-icon">🎪</div><h3>Events Management Services</h3><p>Planning, organizing, and executing events from small gatherings to large functions.</p></div>
+            <div class="card"><div class="card-icon">🍽️</div><h3>Food &amp; Beverage Services</h3><p>Restaurant and food service operations aligned with TESDA Food &amp; Beverage Services NC II.</p></div>
+            <div class="card"><div class="card-icon">👨‍🍳</div><h3>Kitchen Operations</h3><p>Professional cooking techniques, kitchen management, and culinary arts fundamentals.</p></div>
+          </div>
+        </div>
+
+        <div class="strand-group" id="industrial-arts">
+          <div class="strand-header ia-color">
+            <span class="strand-badge">🛠️</span>
+            <div>
+              <h4>Industrial Arts</h4>
+              <p>Hands-on technical training in metalwork and welding.</p>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="card"><div class="card-icon">🔩</div><h3>Manual Metal Arc Welding</h3><p>Structural welding techniques, Shielded Metal Arc Welding (SMAW)</p></div>
+            <div class="card"><div class="card-icon">🏗️</div><h3>Metal Fabrication</h3><p>Creating metal structures and products used in construction and manufacturing industries.</p></div>
+            <div class="card"><div class="card-icon">⚙️</div><h3>Career Pathways</h3><p>Welder, Fabricator, Construction Worker, Manufacturing Technician, and more.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALS -->
+      <div class="tab-panel" id="als">
+        <div class="strand-block" id="als-block">
+          <h3>📋 Alternative Learning System (ALS)</h3>
+          <p>Provides an alternative pathway for out-of-school youth and adults who were unable to complete their formal education.</p>
+        </div>
+        <div class="cards" style="margin-bottom:28px;">
+          <div class="card"><div class="card-icon">📋</div><h3>What is ALS?</h3><p>A parallel learning system that gives everyone a second chance to earn their Senior High School equivalency.</p></div>
+          <div class="card"><div class="card-icon">👥</div><h3>Who Can Enroll?</h3><p>Out-of-school youth, adults, and anyone who cannot attend regular school due to work or family circumstances.</p></div>
+          <div class="card"><div class="card-icon">📅</div><h3>Flexible Schedule</h3><p>Classes are built around the learner's availability, with modular and community-based learning options.</p></div>
+          <div class="card"><div class="card-icon">🎓</div><h3>Accreditation</h3><p>Completers receive a DepEd-recognized SHS certificate and can proceed to college and employment.</p></div>
+        </div>
+        <div class="highlights">
+          <div class="h-item"><div><h4>Learning Modes:</h4><p>Face-to-face sessions, modular distance learning, and community learning centers.</p></div></div>
+          <br>
+          <div class="h-item"><div><h4>ALS Assessment:</h4><p>Learners take the Accreditation &amp; Equivalency (A&amp;E) Test administered by DepEd.</p></div></div>
+          <br>
+          <div class="h-item"><div><h4>How to Enroll ALS?</h4><p>Visit the BSF Admin office for ALS enrollment details.</p></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sec-teal">
+    <div class="container" style="text-align:center; max-width:800px;">
+      <h2 class="sec-title white">Your Future Starts Here</h2>
+      <p style="font-size:15px; color:rgba(255,255,255,0.9); line-height:1.9; margin-bottom:26px;">
+        Whether you choose the Academic Track or Technical-Professional Track, Bato School of Fisheries is committed to walking with you every step of the way. We don't just teach subjects — we shape futures, build character, and nurture the best version of you.
+      </p>
+      <a href="about.html" class="btn-gold">Learn More About BSF</a>
+    </div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand footer-col">
+      <div class="logo-circle" style="width:40px;height:40px;">
+        <img src="Pictures/bsflogoo.png" alt="BSF Logo">
+      </div>
+      <div><strong style="color:white;font-size:14px;">Bato School of Fisheries</strong><br><small>DepEd Division of Leyte</small></div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="strands.html">Strands</a>
+      <a href="arts.html">Special Program in Arts</a>
+      <a href="sports.html">Special Program in Sports</a>
+      <a href="sptve.html">Special Program in TVE</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p>📍 Tinago, Jose P. Rizal St.<br>Bato, Leyte 6521<br>📞 (053) 336-2308<br>🗺️ 8QFR+48C Bato, Leyte<br>🕐 Mon–Fri: 7:00 AM – 5:00 PM</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© Bato School of Fisheries · DepEd Division of Leyte · All Rights Reserved</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

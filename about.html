@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Bato School of Fisheries</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 10px 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--gold), var(--teal));
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    .tl-item {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: calc(50% + 28px);
+      margin-bottom: 36px;
+      position: relative;
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .tl-item.right {
+      justify-content: flex-start;
+      padding-right: 0;
+      padding-left: calc(50% + 28px);
+      transform: translateX(24px);
+    }
+    .tl-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .tl-dot {
+      position: absolute;
+      left: 50%;
+      top: 16px;
+      width: 16px; height: 16px;
+      background: var(--gold);
+      border: 3px solid var(--white);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 0 3px var(--gold);
+      z-index: 2;
+    }
+    .tl-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 16px 20px;
+      max-width: 300px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.09);
+      border-top: 4px solid var(--teal);
+    }
+    .tl-item.right .tl-card { border-top-color: var(--gold); }
+    .tl-year {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 5px;
+    }
+    .tl-item.right .tl-year { color: var(--gold); }
+    .tl-card h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+    .tl-card p  { font-size: 12.5px; color: var(--gray); line-height: 1.6; }
+
+    @media (max-width: 600px) {
+      .timeline::before { left: 18px; }
+      .tl-item, .tl-item.right {
+        justify-content: flex-start;
+        padding-left: 48px;
+        padding-right: 0;
+        transform: translateY(16px);
+      }
+      .tl-dot { left: 18px; }
+      .tl-card { max-width: 100%; }
+    }
+
+    /* ── ACHIEVEMENTS ── */
+    .achieve-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .achieve-card {
+      background: var(--navy);
+      border-radius: 14px;
+      padding: 26px 22px;
+      text-align: center;
+      border-bottom: 4px solid var(--gold);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .achieve-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.18); }
+    .achieve-icon { font-size: 36px; margin-bottom: 12px; display: block; }
+    .achieve-card h4 { font-size: 15px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+    .achieve-card p  { font-size: 12.5px; color: rgba(255,255,255,0.78); line-height: 1.7; }
+
+    /* ── CLUBS ── */
+    .clubs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 14px;
+    }
+    .club-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: 50px;
+      padding: 12px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+    .club-pill:hover {
+      background: rgba(240,165,0,0.15);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .club-pill span { font-size: 20px; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-brand">
+    <div class="logo-circle">
+      <img src="Pictures/bsflogoo.png" alt="BSF Logo">
+    </div>
+    <div class="school-name">
+      <span class="top">Bato School</span>
+      <span class="bot">of Fisheries</span>
+    </div>
+  </a>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li class="dropdown">
+      <a href="strands.html" class="spa-btn">Strands</a>
+      <div class="dropdown-box">
+        <span class="dropdown-label">Academic Track</span>
+        <a href="strands.html?tab=academic#humss">🎓 HUMSS &amp; Comm Arts</a>
+        <a href="strands.html?tab=academic#abm">💼 Business &amp; Entrep</a>
+        <a href="strands.html?tab=academic#stem">🔬 STEM</a>
+        <hr class="dropdown-divider">
+        <span class="dropdown-label">Tech-Vocational Track</span>
+        <a href="strands.html?tab=techpro#agriculture-fishery">🐟 Agriculture &amp; Fishery</a>
+        <a href="strands.html?tab=techpro#family-consumer">🏠 Family &amp; Consumer Sci</a>
+        <a href="strands.html?tab=techpro#industrial-arts">🛠️ Industrial Arts</a>
+        <hr class="dropdown-divider">
+        <span class="dropdown-label">Alternative Learning</span>
+        <a href="strands.html?tab=als#als-block">📋 ALS</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="spa-btn">SPA / SPTVE</a>
+      <div class="dropdown-box">
+        <span class="dropdown-label">Special Program in Arts</span>
+        <a href="arts.html">Special Program in Arts</a>
+        <hr class="dropdown-divider">
+        <span class="dropdown-label">Special Program in Sports</span>
+        <a href="sports.html">Special Program in Sports</a>
+        <hr class="dropdown-divider">
+        <span class="dropdown-label">Technical-Vocational</span>
+        <a href="sptve.html">Special Program in TVE</a>
+      </div>
+    </li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="page-body">
+
+  <!-- HERO -->
+  <div class="inner-hero about-hero">
+    <div class="overlay"></div>
+    <div class="inner-hero-text">
+      <h1>About Our School</h1>
+      <p>Building a legacy of learning and service since 1985.</p>
+    </div>
+  </div>
+
+  <!-- OUR STORY -->
+  <section class="sec-light" style="background-image: url('Pictures/Bato School of Fisheries.jpg'); background-size: cover; background-position: center; position: relative;">
+    <div style="position:absolute; inset:0; backdrop-filter: blur(3px); background: rgba(255,255,255,0.26);"></div>
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="two-col">
+        <div class="about-text">
+          <h2>Our Story</h2>
+          <p>Bato School of Fisheries was established in 1985 in the municipality of Bato, Leyte. Originally focused on fisheries and aquaculture education, the school has grown into a full senior high school offering diverse academic and technical programs.</p>
+          <p>Today, BSF stands as one of the most respected secondary institutions in the region, known for its balance between technical-vocational excellence and academic achievement. We are committed to producing graduates who are globally competitive yet deeply rooted in Filipino values.</p>
+          <p>Located along Jose P. Rizal Street in Tinago, Bato, Leyte, our school continues to serve the youth of the community with dedication and passion.</p>
+        </div>
+        <div class="info-box" style="background: rgba(10,31,68,0.45); backdrop-filter: blur(6px); border: 1px solid rgba(240,165,0,0.4);">
+          <h3>School Profile</h3>
+          <ul>
+            <li><b>Founded:</b> 1985</li>
+            <li><b>Address:</b> Tinago, Jose P. Rizal St., Bato, Leyte</li>
+            <li><b>Contact:</b> (053) 336-2308</li>
+            <li><b>Plus Code:</b> 8QFR+48C Bato, Leyte</li>
+            <li><b>School Type:</b> Public Senior High School</li>
+            <li><b>Division:</b> DepEd Division of Leyte</li>
+            <li><b>Tracks:</b> Academic · TVL · Sports · Arts </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION VISION VALUES -->
+  <section class="sec-teal">
+    <div class="container">
+      <h2 class="sec-title white">Mission, Vision &amp; Values</h2>
+      <div class="mvv">
+        <div class="mvv-card"><h3>🎯 Mission</h3><p>Description</p></div>
+        <div class="mvv-card"><h3>🔭 Vision</h3><p>Description</p></div>
+        <div class="mvv-card"><h3>💎 Core Values</h3><p>Description</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHOOL FACILITIES — clean cards, no photo placeholders -->
+  <section class="sec-light">
+    <div class="container">
+      <h2 class="sec-title">School Facilities</h2>
+      <p class="sec-desc">BSF provides modern, well-equipped spaces that support every aspect of student growth — academic, technical, and recreational.</p>
+      <div class="cards">
+        <div class="card reveal-card"><div class="card-icon">🏫</div><h3>Science Labs</h3><p>Fully equipped biology, chemistry, and fisheries labs for hands-on learning and live experiments.</p></div>
+        <div class="card reveal-card"><div class="card-icon">📚</div><h3>Library</h3><p>Over 5,000 volumes plus digital resources accessible to all students for research and study.</p></div>
+        <div class="card reveal-card"><div class="card-icon">💻</div><h3>Computer Rooms</h3><p>Four computer labs with high-speed internet for ICT subjects, research, and digital projects.</p></div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS & AWARDS -->
+  <section class="sec-dark reveal">
+    <div class="container">
+      <h2 class="sec-title white">Achievements &amp; Recognition</h2>
+      <p class="sec-desc" style="color:rgba(255,255,255,0.7);">BSF has consistently proven its excellence in academics, arts, sports, and technical education across division, regional, and national competitions.</p>
+      <div class="achieve-grid">
+        <div class="achieve-card reveal-card">
+          <span class="achieve-icon">🏆</span>
+          <h4>Regional Sports Champion</h4>
+          <p>Multiple gold medals in DepEd Leyte Division and Regional Meet competitions across various sports disciplines.</p>
+        </div>
+        <div class="achieve-card reveal-card">
+          <span class="achieve-icon">🎭</span>
+          <h4>Arts Festival Winner</h4>
+          <p>Consistent top placer in the Schools Division Arts Festival, excelling in theater, dance, and visual arts.</p>
+        </div>
+        <div class="achieve-card reveal-card">
+          <span class="achieve-icon">🐟</span>
+          <h4>Fisheries Excellence</h4>
+          <p>Recognized as a model school for fisheries and aquaculture education in the DepEd Division of Leyte.</p>
+        </div>
+        <div class="achieve-card reveal-card">
+          <span class="achieve-icon">📜</span>
+          <h4>TESDA Accredited</h4>
+          <p>Fully TESDA-accredited programs offering NC I and NC II certifications in fisheries and food processing.</p>
+        </div>
+        <div class="achieve-card reveal-card">
+          <span class="achieve-icon">📚</span>
+          <h4>Academic Excellence</h4>
+          <p>Consistent honor students and top performers in division and regional academic competitions every year.</p>
+        </div>
+        <div class="achieve-card reveal-card">
+          <span class="achieve-icon">🌿</span>
+          <h4>Green School Award</h4>
+          <p>Recipient of DepEd's Brigada Eskwela recognition for maintaining a clean, green, and sustainable campus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CLUBS & ORGANIZATIONS -->
+  <section class="sec-dark reveal">
+    <div class="container">
+      <h2 class="sec-title white">Clubs &amp; Organizations</h2>
+      <p class="sec-desc" style="color:rgba(255,255,255,0.7);">BSF offers a wide range of student organizations that develop leadership, creativity, and community spirit.</p>
+      <div class="clubs-grid">
+        <div class="club-pill reveal-card"><span></span># </div>
+        <div class="club-pill reveal-card"><span></span>#</div>
+        <div class="club-pill reveal-card"><span></span>#</div>
+        <div class="club-pill reveal-card"><span></span>#</div>
+        <div class="club-pill reveal-card"><span></span>#</div>
+        <div class="club-pill reveal-card"><span></span>#</div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND US -->
+  <section class="sec-dark">
+    <div class="container" style="text-align:center;">
+      <h2 class="sec-title white">Find Us</h2>
+      <p style="color:rgba(255,255,255,0.75); font-size:15px; margin-bottom:26px;">
+        📍 Tinago, Jose P. Rizal St., Bato, Leyte 6521<br>
+        🗺️ Plus Code: <strong style="color:var(--gold);">8QFR+48C</strong> &nbsp;|&nbsp;
+        📞 <strong style="color:var(--gold);">(053) 336-2308</strong>
+      </p>
+      <div style="border-radius:12px; overflow:hidden; max-width:700px; margin:0 auto; border:3px solid rgba(240,165,0,0.3);">
+        <iframe src="https://maps.google.com/maps?q=8QFR%2B48C+Bato+Leyte&output=embed"
+          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand footer-col">
+      <div class="logo-circle" style="width:40px;height:40px;">
+        <img src="Pictures/bsflogoo.png" alt="BSF Logo">
+      </div>
+      <div><strong style="color:white;font-size:14px;">Bato School of Fisheries</strong><br><small>DepEd Division of Leyte</small></div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="strands.html">Strands</a>
+      <a href="arts.html">Special Program in Arts</a>
+      <a href="sports.html">Special Program in Sports</a>
+      <a href="sptve.html">Special Program in TVE</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p>📍 Tinago, Jose P. Rizal St.<br>Bato, Leyte 6521<br>📞 (053) 336-2308<br>🗺️ 8QFR+48C Bato, Leyte<br>🕐 Mon–Fri: 7:00 AM – 5:00 PM</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© Bato School of Fisheries · DepEd Division of Leyte · All Rights Reserved</div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Timeline scroll-reveal animation
+  var tlItems = document.querySelectorAll('.tl-item');
+  if (tlItems.length) {
+    var tlObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry, i) {
+        if (entry.isIntersecting) {
+          setTimeout(function() {
+            entry.target.classList.add('visible');
+          }, i * 120);
+          tlObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+    tlItems.forEach(function(el) { tlObserver.observe(el); });
+  }
+</script>
+</body>
+</html>
