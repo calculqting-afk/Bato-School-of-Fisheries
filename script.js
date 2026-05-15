@@ -33,8 +33,7 @@
       link.parentElement &&
       link.parentElement.classList.contains('dropdown') &&
       link.nextElementSibling &&
-      link.nextElementSibling.classList.contains('dropdown-box') &&
-      !link.parentElement.classList.contains('open')
+      link.nextElementSibling.classList.contains('dropdown-box')
     ) return;
     var href = link.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
@@ -76,15 +75,17 @@ document.addEventListener('DOMContentLoaded', function () {
   // 2. Hamburger menu toggle
   var hamburger = document.getElementById('hamburger');
   var navMenu   = document.getElementById('navMenu');
-  if (hamburger && navMenu) {
-    function setMenuOpen(isOpen) {
-      navMenu.classList.toggle('open', isOpen);
-      hamburger.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', String(isOpen));
-      hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-      if (!isOpen) closeDropdowns();
-    }
 
+  function setMenuOpen(isOpen) {
+    if (!hamburger || !navMenu) return;
+    navMenu.classList.toggle('open', isOpen);
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    if (!isOpen) closeDropdowns();
+  }
+
+  if (hamburger && navMenu) {
     hamburger.addEventListener('click', function () {
       setMenuOpen(!navMenu.classList.contains('open'));
     });
@@ -116,14 +117,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     trigger.addEventListener('click', function (e) {
       if (!window.matchMedia('(max-width: 700px)').matches) return;
-      if (!dropdown.classList.contains('open')) {
-        e.preventDefault();
-        closeDropdowns(dropdown);
-        dropdown.classList.add('open');
-        trigger.setAttribute('aria-expanded', 'true');
-      }
+      e.preventDefault();
+      var shouldOpen = !dropdown.classList.contains('open');
+      closeDropdowns(shouldOpen ? dropdown : null);
+      dropdown.classList.toggle('open', shouldOpen);
+      trigger.setAttribute('aria-expanded', String(shouldOpen));
     });
   });
+
+  if (navMenu) {
+    navMenu.addEventListener('click', function (e) {
+      if (!window.matchMedia('(max-width: 700px)').matches) return;
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      var isDropdownTrigger = link.parentElement &&
+        link.parentElement.classList.contains('dropdown') &&
+        link.nextElementSibling &&
+        link.nextElementSibling.classList.contains('dropdown-box');
+      if (!isDropdownTrigger) setMenuOpen(false);
+    });
+  }
 
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
