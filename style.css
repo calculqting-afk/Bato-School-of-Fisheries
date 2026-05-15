@@ -77,9 +77,18 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
 }
 .nav-menu a:hover,
-.nav-menu a.active {
+.nav-menu a.active,
+.nav-menu a:focus-visible {
   color: var(--gold);
   background: rgba(240,165,0,0.12);
+}
+.nav-menu a:focus-visible,
+.hamburger:focus-visible,
+.tab-btn:focus-visible,
+.btn-gold:focus-visible,
+.btn-outline:focus-visible {
+  outline: 3px solid rgba(240,165,0,0.75);
+  outline-offset: 3px;
 }
 
 
@@ -120,7 +129,11 @@ img { max-width: 100%; display: block; }
   border-left-color: var(--teal);
   color: var(--white);
 }
-.dropdown:hover .dropdown-box { display: block; }
+.dropdown:hover .dropdown-box,
+.dropdown:focus-within .dropdown-box,
+.dropdown.open .dropdown-box {
+  display: block;
+}
 
 .dropdown-label {
   display: block;
@@ -138,7 +151,16 @@ img { max-width: 100%; display: block; }
   margin: 4px 18px;
 }
 
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  padding: 8px;
+  border-radius: 6px;
+}
 .hamburger span {
   width: 24px; height: 2px;
   background: var(--white);
@@ -210,7 +232,7 @@ img { max-width: 100%; display: block; }
 .inner-hero-text p  { font-size: 15px; color: rgba(255,255,255,0.78); }
 
 .about-hero  { background-image: url('Pictures/aboutlogo.jpg'); }
-.strand-hero { background-image: url('Pictures/.jpg'); }
+.strand-hero { background-image: url('Pictures/SHSbg.jpg'); }
 .arts-hero   { background-image: url('Pictures/SPABG.jpg'); }
 .sports-hero { background-image: url('Pictures/SPSbg.jpg'); }
 .sptve-hero  { background-image: url('Pictures/SPTVE.BG.jpg'); }
@@ -255,6 +277,12 @@ img { max-width: 100%; display: block; }
 .card.dark { background: rgba(255,255,255,0.07); border-top-color: var(--gold); color: var(--white); }
 .card.teal { background: rgba(255,255,255,0.13); border-top-color: var(--white); color: var(--white); }
 .card-icon { font-size: 32px; margin-bottom: 12px; }
+.card-icon:empty {
+  width: 34px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), var(--teal));
+}
 .card h3   { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
 .card.dark h3, .card.teal h3 { color: var(--gold); }
 .card p    { font-size: 13px; line-height: 1.7; color: var(--gray); }
@@ -281,6 +309,25 @@ img { max-width: 100%; display: block; }
 .about-text h2 { font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 14px; }
 .about-text p  { font-size: 15px; color: var(--dark); line-height: 1.8; margin-bottom: 12px; }
 .info-box { background: var(--navy); border-radius: 12px; padding: 26px; color: var(--white); }
+.school-photo-section {
+  background-image: url('Pictures/Bato School of Fisheries.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.school-photo-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(3px);
+  background: rgba(255,255,255,0.26);
+}
+.section-layer { position: relative; z-index: 1; }
+.info-box.glass {
+  background: rgba(10,31,68,0.45);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(240,165,0,0.4);
+}
 .info-box h3 { font-size: 18px; color: var(--gold); margin-bottom: 14px; }
 .info-box li { font-size: 13px; padding-bottom: 9px; margin-bottom: 9px; border-bottom: 1px solid rgba(255,255,255,0.1); }
 .info-box li:last-child { border-bottom: none; padding-bottom: 0; }
@@ -366,6 +413,14 @@ img { max-width: 100%; display: block; }
 }
 .achieve-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.18); }
 .achieve-icon { font-size: 36px; margin-bottom: 12px; display: block; }
+.achieve-icon:empty {
+  width: 42px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--gold);
+  margin-left: auto;
+  margin-right: auto;
+}
 .achieve-card h4 { font-size: 15px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
 .achieve-card p  { font-size: 12.5px; color: rgba(255,255,255,0.78); line-height: 1.7; }
 
@@ -391,6 +446,12 @@ img { max-width: 100%; display: block; }
 }
 .club-pill:hover { background: rgba(240,165,0,0.15); border-color: var(--gold); transform: translateY(-2px); }
 .club-pill span { font-size: 20px; flex-shrink: 0; }
+.club-pill span:empty {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+}
 
 
 /* ── STRAND TABS ── */
@@ -449,17 +510,68 @@ img { max-width: 100%; display: block; }
 }
 .video-wrapper:hover { box-shadow: 0 0 0 8px rgba(240, 165, 0, 0.25); }
 .video-wrapper video { width: 100%; display: block; }
+.video-wrapper iframe { width: 100%; aspect-ratio: 16 / 9; display: block; }
+.video-note {
+  text-align: center;
+  color: rgba(255,255,255,0.75);
+  font-size: 15px;
+  margin-top: -20px;
+  margin-bottom: 36px;
+}
 
 
 /* ── FOOTER ── */
 .footer { background: #060e1a; color: rgba(255,255,255,0.7); padding: 48px 0 0; }
 .footer-grid { max-width: 1150px; margin: 0 auto; padding: 0 32px 36px; display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .footer-brand { display: flex; align-items: center; gap: 12px; }
+.logo-circle-small { width: 40px; height: 40px; }
+.footer-title { color: var(--white); font-size: 14px; }
 .footer-col h4 { color: var(--gold); font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px; }
 .footer-col a  { display: block; font-size: 13px; margin-bottom: 8px; transition: color 0.2s ease, padding-left 0.2s ease; }
 .footer-col a:hover { color: var(--gold); padding-left: 4px; }
 .footer-col p  { font-size: 13px; line-height: 2; }
 .footer-bottom { text-align: center; padding: 16px; font-size: 11px; opacity: 0.4; }
+
+.text-gold { color: var(--gold); }
+.desc-on-dark { color: rgba(255,255,255,0.7); }
+.centered { text-align: center; }
+.narrow-820 { max-width: 820px; }
+.narrow-800 { max-width: 800px; }
+.intro-copy {
+  font-size: 16px;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+.intro-quote {
+  font-size: 15px;
+  color: var(--gold);
+  font-weight: 700;
+  font-style: italic;
+}
+.cta-copy {
+  font-size: 15px;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.9;
+  margin-bottom: 26px;
+}
+.cards-spaced { margin-bottom: 28px; }
+.find-us-text {
+  color: rgba(255,255,255,0.75);
+  font-size: 15px;
+  margin-bottom: 26px;
+}
+.map-frame {
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 3px solid rgba(240,165,0,0.3);
+}
+.map-frame iframe {
+  border: 0;
+  display: block;
+}
 
 
 /* ── FACILITY PHOTO BOXES ── */
@@ -481,6 +593,7 @@ img { max-width: 100%; display: block; }
 
 /* ── PHOTO SHOWCASE ── */
 .showcase-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.stack-gap { margin-bottom: 20px; }
 .showcase-box { border-radius: 14px; overflow: hidden; box-shadow: 0 4px 18px rgba(0,0,0,0.10); background: var(--white); transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .showcase-box:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
 .showcase-img { width: 100%; height: 280px; overflow: hidden; background: #e8edf3; position: relative; }
@@ -604,6 +717,7 @@ img { max-width: 100%; display: block; }
   .nav-menu.open { display: flex; }
   .hamburger { display: flex; }
   .dropdown-box { position: static; box-shadow: none; background: rgba(255,255,255,0.05); animation: none; }
+  .dropdown:not(.open):not(:focus-within):not(:hover) .dropdown-box { display: none; }
   .hero-content { padding: 40px 20px; }
   .container { padding: 0 18px; }
   .footer-grid { grid-template-columns: 1fr; }
@@ -612,4 +726,22 @@ img { max-width: 100%; display: block; }
   .tl-item, .tl-item.right { justify-content: flex-start; padding-left: 48px; padding-right: 0; transform: translateY(16px); }
   .tl-dot { left: 18px; }
   .tl-card { max-width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .reveal-card,
+  .tl-item {
+    opacity: 1;
+    transform: none;
+  }
 }

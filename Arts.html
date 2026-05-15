@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Special Program in Arts — Bato School of Fisheries</title>
+  <meta name="description" content="Discover the Special Program in Arts at Bato School of Fisheries, including music, dance, visual arts, theater arts, media arts, and creative writing." />
+  <meta name="theme-color" content="#0a1f44" />
+  <meta property="og:title" content="Special Program in Arts - Bato School of Fisheries" />
+  <meta property="og:description" content="Explore creative arts training and student showcases at Bato School of Fisheries." />
+  <meta property="og:image" content="Pictures/SPABG.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="Pictures/bsflogoo.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,7 +18,7 @@
 <nav class="navbar">
   <a href="index.html" class="nav-brand">
     <div class="logo-circle">
-      <img src="Pictures/bsflogoo.png" alt="BSF Logo">
+      <img src="Pictures/bsflogoo.png" alt="BSF Logo" decoding="async">
     </div>
     <div class="school-name">
       <span class="top">Bato School</span>
@@ -39,7 +46,7 @@
       </div>
     </li>
     <li class="dropdown">
-      <a href="#" class="spa-btn">SPA / SPTVE</a>
+      <a href="Arts.html" class="programs-btn">SPA / SPTVE</a>
       <div class="dropdown-box">
         <span class="dropdown-label">Special Program in Arts</span>
         <a href="Arts.html">Special Program in Arts</a>
@@ -52,9 +59,9 @@
       </div>
     </li>
   </ul>
-  <div class="hamburger" id="hamburger">
+  <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 
 <div class="page-body">
@@ -76,7 +83,6 @@
         <div class="card reveal-card"><div class="card-icon"></div><h3>Dance</h3><p>Learn different styles like folk, ballet, and contemporary and join competitions.</p></div>
         <div class="card reveal-card"><div class="card-icon"></div><h3>Visual Arts</h3><p>Learn painting, drawing, sculpture, printmaking, and digital art.</p></div>
         <div class="card reveal-card"><div class="card-icon"></div><h3>Theater Arts</h3><p>Learn acting, writing plays, and performing on stage.</p></div>
-        <br>
         <div class="card reveal-card"><div class="card-icon"></div><h3>Media Arts</h3><p>Photography, videography, and digital media production.</p></div>
         <div class="card reveal-card"><div class="card-icon"></div><h3>Creative Writing</h3><p>Poetry, fiction, essays, and feature writing in Filipino and English.</p></div>
       </div>
@@ -88,16 +94,16 @@
       <h2 class="sec-title reveal">SPA Students</h2>
       <p class="sec-desc reveal">A glimpse of our students expressing their talents across all disciplines.</p>
 
-      <div class="showcase-row" style="margin-bottom: 20px;">
+      <div class="showcase-row stack-gap">
         <div class="showcase-box reveal-card">
-          <div class="showcase-img"><img src="Pictures/Visual Arts.jpg" alt="Visual Arts"></div>
+          <div class="showcase-img"><img src="Pictures/Visual Arts.jpg" alt="Visual Arts students" loading="lazy" decoding="async"></div>
           <div class="showcase-label">
             <span class="showcase-tag">Visual Arts</span>
             <p>Painting · Drawing · Sculpture · Digital Art</p>
           </div>
         </div>
         <div class="showcase-box reveal-card">
-          <div class="showcase-img"><img src="Pictures/Music.jpg" alt="Music"></div>
+          <div class="showcase-img"><img src="Pictures/Music.jpg" alt="Music students" loading="lazy" decoding="async"></div>
           <div class="showcase-label">
             <span class="showcase-tag">Music</span>
             <p>Choir · Orchestra · Rondalla · Vocal Training</p>
@@ -105,9 +111,9 @@
         </div>
       </div>
 
-      <div class="showcase-row-center" style="margin-bottom: 20px;">
+      <div class="showcase-row-center stack-gap">
         <div class="showcase-box reveal-card">
-          <div class="showcase-img"><img src="Pictures/Theater Arts.jpg" alt="Theater Arts"></div>
+          <div class="showcase-img"><img src="Pictures/Theater Arts.jpg" alt="Theater Arts students" loading="lazy" decoding="async"></div>
           <div class="showcase-label">
             <span class="showcase-tag">Theater Arts</span>
             <p>Acting · Playwriting · Stagecraft</p>
@@ -115,16 +121,16 @@
         </div>
       </div>
 
-      <div class="showcase-row" style="margin-bottom: 20px;">
+      <div class="showcase-row stack-gap">
         <div class="showcase-box reveal-card">
-          <div class="showcase-img"><img src="Pictures/Dance.jpg" alt="Dance"></div>
+          <div class="showcase-img"><img src="Pictures/Dance.jpg" alt="Dance students" loading="lazy" decoding="async"></div>
           <div class="showcase-label">
             <span class="showcase-tag">Dance</span>
             <p>Folk · Contemporary · Hip-Hop · Ballet</p>
           </div>
         </div>
         <div class="showcase-box reveal-card">
-          <div class="showcase-img"><img src="Pictures/Media Arts.jpg" alt="Media Arts"></div>
+          <div class="showcase-img"><img src="Pictures/Media Arts.jpg" alt="Media Arts students" loading="lazy" decoding="async"></div>
           <div class="showcase-label">
             <span class="showcase-tag">Media Arts</span>
             <p>Photography · Videography · Digital Media</p>
@@ -134,7 +140,7 @@
 
       <div class="showcase-row-center">
         <div class="showcase-box reveal-card">
-          <div class="showcase-img"><img src="Pictures/Creative Writing.jpg" alt="Creative Writing"></div>
+          <div class="showcase-img"><img src="Pictures/Creative Writing.jpg" alt="Creative Writing students" loading="lazy" decoding="async"></div>
           <div class="showcase-label">
             <span class="showcase-tag">Creative Writing</span>
             <p>Poetry · Fiction · Essays · Feature Writing</p>
@@ -150,10 +156,10 @@
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand footer-col">
-      <div class="logo-circle" style="width:40px;height:40px;">
-        <img src="Pictures/bsflogoo.png" alt="BSF Logo">
+      <div class="logo-circle logo-circle-small">
+        <img src="Pictures/bsflogoo.png" alt="BSF Logo" loading="lazy" decoding="async">
       </div>
-      <div><strong style="color:white;font-size:14px;">Bato School of Fisheries</strong><br><small>DepEd Division of Leyte</small></div>
+      <div><strong class="footer-title">Bato School of Fisheries</strong><br><small>DepEd Division of Leyte</small></div>
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>

@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Bato School of Fisheries</title>
+  <meta name="description" content="Learn about Bato School of Fisheries, its history, school profile, mission, vision, facilities, achievements, and student organizations." />
+  <meta name="theme-color" content="#0a1f44" />
+  <meta property="og:title" content="About Bato School of Fisheries" />
+  <meta property="og:description" content="Discover the history, values, facilities, and community of Bato School of Fisheries in Bato, Leyte." />
+  <meta property="og:image" content="Pictures/aboutlogo.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="Pictures/bsflogoo.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,7 +18,7 @@
 <nav class="navbar">
   <a href="index.html" class="nav-brand">
     <div class="logo-circle">
-      <img src="Pictures/bsflogoo.png" alt="BSF Logo">
+      <img src="Pictures/bsflogoo.png" alt="BSF Logo" decoding="async">
     </div>
     <div class="school-name">
       <span class="top">Bato School</span>
@@ -39,7 +46,7 @@
       </div>
     </li>
     <li class="dropdown">
-      <a href="#" class="spa-btn">SPA / SPTVE</a>
+      <a href="Arts.html" class="programs-btn">SPA / SPTVE</a>
       <div class="dropdown-box">
         <span class="dropdown-label">Special Program in Arts</span>
         <a href="Arts.html">Special Program in Arts</a>
@@ -52,9 +59,9 @@
       </div>
     </li>
   </ul>
-  <div class="hamburger" id="hamburger">
+  <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 
 <div class="page-body">
@@ -69,9 +76,8 @@
   </div>
 
   <!-- OUR STORY -->
-  <section class="sec-light" style="background-image: url('Pictures/Bato School of Fisheries.jpg'); background-size: cover; background-position: center; position: relative;">
-    <div style="position:absolute; inset:0; backdrop-filter: blur(3px); background: rgba(255,255,255,0.26);"></div>
-    <div class="container" style="position:relative; z-index:1;">
+  <section class="sec-light school-photo-section">
+    <div class="container section-layer">
       <div class="two-col">
         <div class="about-text">
           <h2>Our Story</h2>
@@ -79,7 +85,7 @@
           <p>Today, BSF stands as one of the most respected secondary institutions in the region, known for its balance between technical-vocational excellence and academic achievement. We are committed to producing graduates who are globally competitive yet deeply rooted in Filipino values.</p>
           <p>Located along Jose P. Rizal Street in Tinago, Bato, Leyte, our school continues to serve the youth of the community with dedication and passion.</p>
         </div>
-        <div class="info-box" style="background: rgba(10,31,68,0.45); backdrop-filter: blur(6px); border: 1px solid rgba(240,165,0,0.4);">
+        <div class="info-box glass">
           <h3>School Profile</h3>
           <ul>
             <li><b>Founded:</b> 1985</li>
@@ -100,9 +106,9 @@
     <div class="container">
       <h2 class="sec-title white">Mission, Vision &amp; Values</h2>
       <div class="mvv">
-        <div class="mvv-card"><h3> Mission</h3><p>Description</p></div>
-        <div class="mvv-card"><h3> Vision</h3><p>Description</p></div>
-        <div class="mvv-card"><h3> Core Values</h3><p>Description</p></div>
+        <div class="mvv-card"><h3>Mission</h3><p>To provide accessible, relevant, and quality education that develops learners with strong technical skills, academic competence, and responsible citizenship.</p></div>
+        <div class="mvv-card"><h3>Vision</h3><p>A learner-centered school community that prepares globally competitive graduates rooted in service, integrity, and love for the environment.</p></div>
+        <div class="mvv-card"><h3>Core Values</h3><p>BSF upholds the DepEd core values of Maka-Diyos, Maka-tao, Makakalikasan, and Makabansa in school life and community service.</p></div>
       </div>
     </div>
   </section>
@@ -124,14 +130,14 @@
   <section class="sec-dark reveal">
     <div class="container">
       <h2 class="sec-title white">Achievements &amp; Recognition</h2>
-      <p class="sec-desc" style="color:rgba(255,255,255,0.7);">BSF has consistently proven its excellence in academics, arts, sports, and technical education across division, regional, and national competitions.</p>
+      <p class="sec-desc desc-on-dark">BSF has consistently proven its excellence in academics, arts, sports, and technical education across division, regional, and national competitions.</p>
       <div class="achieve-grid">
-        <div class="achieve-card reveal-card"><span class="achieve-icon"></span><h4>Title</h4><p>.</p></div>
-        <div class="achieve-card reveal-card"><span class="achieve-icon"></span><h4>Title</h4><p>.</p></div>
-        <div class="achieve-card reveal-card"><span class="achieve-icon"></span><h4>Title</h4><p>.</p></div>
-        <div class="achieve-card reveal-card"><span class="achieve-icon"></span><h4>Title</h4><p>.</p></div>
-        <div class="achieve-card reveal-card"><span class="achieve-icon"></span><h4>Title</h4><p>.</p></div>
-        <div class="achieve-card reveal-card"><span class="achieve-icon"></span><h4>Title</h4><p>.</p></div>
+        <div class="achieve-card reveal-card"><span class="achieve-icon"></span><h4>Technical Skills Training</h4><p>Hands-on fisheries and technical-vocational learning that prepares students for work, enterprise, and further studies.</p></div>
+        <div class="achieve-card reveal-card"><span class="achieve-icon"></span><h4>Academic Participation</h4><p>Students are encouraged to join academic activities, research tasks, and classroom-based competitions.</p></div>
+        <div class="achieve-card reveal-card"><span class="achieve-icon"></span><h4>Student Leadership</h4><p>School organizations help learners practice responsibility, service, and project planning.</p></div>
+        <div class="achieve-card reveal-card"><span class="achieve-icon"></span><h4>Arts Development</h4><p>The arts program supports student creativity through music, dance, visual arts, theater, media, and writing.</p></div>
+        <div class="achieve-card reveal-card"><span class="achieve-icon"></span><h4>Sports Development</h4><p>The sports program builds discipline, teamwork, and school pride through regular training and competition.</p></div>
+        <div class="achieve-card reveal-card"><span class="achieve-icon"></span><h4>Community Service</h4><p>BSF promotes civic responsibility through school activities connected to the needs of the local community.</p></div>
       </div>
     </div>
   </section>
@@ -140,30 +146,31 @@
   <section class="sec-dark reveal">
     <div class="container">
       <h2 class="sec-title white">Clubs &amp; Organizations</h2>
-      <p class="sec-desc" style="color:rgba(255,255,255,0.7);">BSF offers a wide range of student organizations that develop leadership, creativity, and community spirit.</p>
+      <p class="sec-desc desc-on-dark">BSF offers a wide range of student organizations that develop leadership, creativity, and community spirit.</p>
       <div class="clubs-grid">
-        <div class="club-pill reveal-card"><span></span>#</div>
-        <div class="club-pill reveal-card"><span></span>#</div>
-        <div class="club-pill reveal-card"><span></span>#</div>
-        <div class="club-pill reveal-card"><span></span>#</div>
-        <div class="club-pill reveal-card"><span></span>#</div>
-        <div class="club-pill reveal-card"><span></span>#</div>
+        <div class="club-pill reveal-card"><span></span>Supreme Secondary Learner Government</div>
+        <div class="club-pill reveal-card"><span></span>Youth for Environment in Schools</div>
+        <div class="club-pill reveal-card"><span></span>Barkada Kontra Droga</div>
+        <div class="club-pill reveal-card"><span></span>Science Club</div>
+        <div class="club-pill reveal-card"><span></span>Sports Club</div>
+        <div class="club-pill reveal-card"><span></span>Arts Club</div>
       </div>
     </div>
   </section>
 
   <!-- FIND US -->
   <section class="sec-dark">
-    <div class="container" style="text-align:center;">
+    <div class="container centered">
       <h2 class="sec-title white">Find Us</h2>
-      <p style="color:rgba(255,255,255,0.75); font-size:15px; margin-bottom:26px;">
+      <p class="find-us-text">
          Tinago, Jose P. Rizal St., Bato, Leyte 6521<br>
-         Plus Code: <strong style="color:var(--gold);">8QFR+48C</strong> &nbsp;|&nbsp;
-         <strong style="color:var(--gold);">(053) 336-2308</strong>
+         Plus Code: <strong class="text-gold">8QFR+48C</strong> &nbsp;|&nbsp;
+         <strong class="text-gold">(053) 336-2308</strong>
       </p>
-      <div style="border-radius:12px; overflow:hidden; max-width:700px; margin:0 auto; border:3px solid rgba(240,165,0,0.3);">
+      <div class="map-frame">
         <iframe src="https://maps.google.com/maps?q=8QFR%2B48C+Bato+Leyte&output=embed"
-          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          title="Bato School of Fisheries location map"
+          width="100%" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
@@ -173,10 +180,10 @@
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand footer-col">
-      <div class="logo-circle" style="width:40px;height:40px;">
-        <img src="Pictures/bsflogoo.png" alt="BSF Logo">
+      <div class="logo-circle logo-circle-small">
+        <img src="Pictures/bsflogoo.png" alt="BSF Logo" loading="lazy" decoding="async">
       </div>
-      <div><strong style="color:white;font-size:14px;">Bato School of Fisheries</strong><br><small>DepEd Division of Leyte</small></div>
+      <div><strong class="footer-title">Bato School of Fisheries</strong><br><small>DepEd Division of Leyte</small></div>
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>

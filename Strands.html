@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Strands — Bato School of Fisheries</title>
+  <meta name="description" content="Explore the Senior High School programs and tracks offered by Bato School of Fisheries, including Academic Track, Technical-Professional Track, and ALS." />
+  <meta name="theme-color" content="#0a1f44" />
+  <meta property="og:title" content="Senior High School Programs - Bato School of Fisheries" />
+  <meta property="og:description" content="Choose from academic, technical-professional, and alternative learning pathways at Bato School of Fisheries." />
+  <meta property="og:image" content="Pictures/SHSbg.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="Pictures/bsflogoo.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,7 +18,7 @@
 <nav class="navbar">
   <a href="index.html" class="nav-brand">
     <div class="logo-circle">
-      <img src="Pictures/bsflogoo.png" alt="BSF Logo">
+      <img src="Pictures/bsflogoo.png" alt="BSF Logo" decoding="async">
     </div>
     <div class="school-name">
       <span class="top">Bato School</span>
@@ -39,7 +46,7 @@
       </div>
     </li>
     <li class="dropdown">
-      <a href="#" class="spa-btn">SPA / SPTVE</a>
+      <a href="Arts.html" class="programs-btn">SPA / SPTVE</a>
       <div class="dropdown-box">
         <span class="dropdown-label">Special Program in Arts</span>
         <a href="Arts.html">Special Program in Arts</a>
@@ -52,9 +59,9 @@
       </div>
     </li>
   </ul>
-  <div class="hamburger" id="hamburger">
+  <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 
 <div class="page-body">
@@ -68,11 +75,11 @@
   </div>
 
   <section class="sec-dark">
-    <div class="container" style="text-align:center; max-width:820px;">
-      <p style="font-size:16px; color:rgba(255,255,255,0.88); line-height:1.9; margin-bottom:16px;">
+    <div class="container centered narrow-820">
+      <p class="intro-copy">
         All of these tracks will pave pathways that provide fundamental and essential courses that will help you excel in your desired profession in the future!
       </p>
-      <p style="font-size:15px; color:var(--gold); font-weight:700; font-style:italic;">
+      <p class="intro-quote">
         "Here at Bato School of Fisheries, we instill values in our students and bring the very best version of themselves!"
       </p>
     </div>
@@ -83,14 +90,14 @@
       <h2 class="sec-title">Choose Your Track</h2>
       <p class="sec-desc">Bato School of Fisheries offers two tracks under the Senior High School curriculum plus ALS.</p>
 
-      <div class="tabs">
-        <button class="tab-btn active" data-tab="academic"> Academic Track</button>
-        <button class="tab-btn" data-tab="techpro"> Technical-Professional Track</button>
-        <button class="tab-btn" data-tab="als"> ALS</button>
+      <div class="tabs" role="tablist" aria-label="Senior High School tracks">
+        <button class="tab-btn active" data-tab="academic" role="tab" aria-selected="true" aria-controls="academic"> Academic Track</button>
+        <button class="tab-btn" data-tab="techpro" role="tab" aria-selected="false" aria-controls="techpro"> Technical-Professional Track</button>
+        <button class="tab-btn" data-tab="als" role="tab" aria-selected="false" aria-controls="als"> ALS</button>
       </div>
 
       <!-- ACADEMIC TRACK -->
-      <div class="tab-panel active" id="academic">
+      <div class="tab-panel active" id="academic" role="tabpanel" tabindex="0">
         <div class="strand-block">
           <h3> Academic Track</h3>
           <p>For students who plan to pursue college or university after Senior High School. Choose from three clusters based on your passion and career goal.</p>
@@ -143,7 +150,7 @@
       </div>
 
       <!-- TECHNICAL-PROFESSIONAL TRACK -->
-      <div class="tab-panel" id="techpro">
+      <div class="tab-panel" id="techpro" role="tabpanel" tabindex="0">
         <div class="strand-block">
           <h3>🔧 Technical-Professional Track</h3>
           <p>Equips students with practical skills. Graduates are ready for employment, entrepreneurship, or higher education.</p>
@@ -195,12 +202,12 @@
       </div>
 
       <!-- ALS -->
-      <div class="tab-panel" id="als">
+      <div class="tab-panel" id="als" role="tabpanel" tabindex="0">
         <div class="strand-block" id="als-block">
           <h3> Alternative Learning System (ALS)</h3>
           <p>Provides an alternative pathway for out-of-school youth and adults who were unable to complete their formal education.</p>
         </div>
-        <div class="cards" style="margin-bottom:28px;">
+        <div class="cards cards-spaced">
           <div class="card"><div class="card-icon"></div><h3>What is ALS?</h3><p>A parallel learning system that gives everyone a second chance to earn their Senior High School equivalency.</p></div>
           <div class="card"><div class="card-icon"></div><h3>Who Can Enroll?</h3><p>Out-of-school youth, adults, and anyone who cannot attend regular school due to work or family circumstances.</p></div>
           <div class="card"><div class="card-icon"></div><h3>Flexible Schedule</h3><p>Classes are built around the learner's availability, with modular and community-based learning options.</p></div>
@@ -208,9 +215,7 @@
         </div>
         <div class="highlights">
           <div class="h-item"><div><h4>Learning Modes:</h4><p>Face-to-face sessions, modular distance learning, and community learning centers.</p></div></div>
-          <br>
           <div class="h-item"><div><h4>ALS Assessment:</h4><p>Learners take the Accreditation &amp; Equivalency (A&amp;E) Test administered by DepEd.</p></div></div>
-          <br>
           <div class="h-item"><div><h4>How to Enroll ALS?</h4><p>Visit the BSF Admin office for ALS enrollment details.</p></div></div>
         </div>
       </div>
@@ -219,9 +224,9 @@
   </section>
 
   <section class="sec-teal">
-    <div class="container" style="text-align:center; max-width:800px;">
+    <div class="container centered narrow-800">
       <h2 class="sec-title white">Your Future Starts Here</h2>
-      <p style="font-size:15px; color:rgba(255,255,255,0.9); line-height:1.9; margin-bottom:26px;">
+      <p class="cta-copy">
         Whether you choose the Academic Track or Technical-Professional Track, Bato School of Fisheries is committed to walking with you every step of the way. We don't just teach subjects — we shape futures, build character, and nurture the best version of you.
       </p>
       <a href="about.html" class="btn-gold">Learn More About BSF</a>
@@ -233,10 +238,10 @@
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand footer-col">
-      <div class="logo-circle" style="width:40px;height:40px;">
-        <img src="Pictures/bsflogoo.png" alt="BSF Logo">
+      <div class="logo-circle logo-circle-small">
+        <img src="Pictures/bsflogoo.png" alt="BSF Logo" loading="lazy" decoding="async">
       </div>
-      <div><strong style="color:white;font-size:14px;">Bato School of Fisheries</strong><br><small>DepEd Division of Leyte</small></div>
+      <div><strong class="footer-title">Bato School of Fisheries</strong><br><small>DepEd Division of Leyte</small></div>
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>

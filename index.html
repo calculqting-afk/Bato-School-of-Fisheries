@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home — Bato School of Fisheries</title>
+  <meta name="description" content="Official website of Bato School of Fisheries in Bato, Leyte, featuring school programs, strands, arts, sports, and technical-vocational education." />
+  <meta name="theme-color" content="#0a1f44" />
+  <meta property="og:title" content="Bato School of Fisheries" />
+  <meta property="og:description" content="Explore the programs, strands, events, and student opportunities at Bato School of Fisheries." />
+  <meta property="og:image" content="Pictures/bsfmainlogoo.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="Pictures/bsflogoo.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,7 +18,7 @@
 <nav class="navbar">
   <a href="index.html" class="nav-brand">
     <div class="logo-circle">
-      <img src="Pictures/bsflogoo.png" alt="BSF Logo">
+      <img src="Pictures/bsflogoo.png" alt="BSF Logo" decoding="async">
     </div>
     <div class="school-name">
       <span class="top">Bato School</span>
@@ -39,7 +46,7 @@
       </div>
     </li>
     <li class="dropdown">
-      <a href="#" class="spa-btn">SPA / SPTVE</a>
+      <a href="Arts.html" class="programs-btn">SPA / SPTVE</a>
       <div class="dropdown-box">
         <span class="dropdown-label">Special Program in Arts</span>
         <a href="Arts.html">Special Program in Arts</a>
@@ -52,9 +59,9 @@
       </div>
     </li>
   </ul>
-  <div class="hamburger" id="hamburger">
+  <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 
 <div class="page-body">
@@ -98,7 +105,7 @@
       <div class="announce-grid">
         <div class="announce-card reveal-card">
           <div class="announce-img">
-            <img src="Pictures/Enrollment.jpg" alt="Pasundayag" />
+            <img src="Pictures/Enrollment.jpg" alt="Enrollment announcement" loading="lazy" decoding="async" />
             <span class="announce-tag">Event</span>
           </div>
           <div class="announce-body">
@@ -109,24 +116,13 @@
         </div>
         <div class="announce-card reveal-card">
           <div class="announce-img">
-            <img src="Pictures/SSLG Campaign.jpg" alt="SSLG Campaign" />
+            <img src="Pictures/SSLG Campaign.jpg" alt="SSLG Campaign" loading="lazy" decoding="async" />
             <span class="announce-tag">Election</span>
           </div>
           <div class="announce-body">
             <span class="announce-date">February 9, 2026</span>
             <h3>SSLG Election 2026</h3>
             <p>An event where student leaders present their ideas and vision for the school.</p>
-          </div>
-        </div>
-        <div class="announce-card reveal-card" style="display:none;">
-          <div class="announce-img">
-            <img src=".jpg" alt="#" />
-            <span class="announce-tag">Event</span>
-          </div>
-          <div class="announce-body">
-            <span class="announce-date">Date</span>
-            <h3>Title</h3>
-            <p>Description</p>
           </div>
         </div>
       </div>
@@ -136,7 +132,7 @@
   <section class="sec-dark reveal">
     <div class="container">
       <h2 class="sec-title white">Welcome to Bato School of Fisheries!</h2>
-      <p style="text-align:center; color:rgba(255,255,255,0.75); font-size:15px; margin-top:-20px; margin-bottom:36px;">
+      <p class="video-note">
         Watch how Bato School of Fisheries shapes the next generation.
       </p>
       <div class="video-wrapper">
@@ -144,6 +140,7 @@
           src="https://www.youtube.com/embed/zSPJMoR3WU4"
           title="Bato School of Fisheries Video"
           frameborder="0"
+          loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
         </iframe>
@@ -156,10 +153,10 @@
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand footer-col">
-      <div class="logo-circle" style="width:40px;height:40px;">
-        <img src="Pictures/bsflogoo.png" alt="BSF Logo">
+      <div class="logo-circle logo-circle-small">
+        <img src="Pictures/bsflogoo.png" alt="BSF Logo" loading="lazy" decoding="async">
       </div>
-      <div><strong style="color:white;font-size:14px;">Bato School of Fisheries</strong><br><small>DepEd Division of Leyte</small></div>
+      <div><strong class="footer-title">Bato School of Fisheries</strong><br><small>DepEd Division of Leyte</small></div>
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>
