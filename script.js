@@ -86,7 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (hamburger && navMenu) {
-    hamburger.addEventListener('click', function () {
+    hamburger.addEventListener('click', function (e) {
+      e.stopPropagation();
       setMenuOpen(!navMenu.classList.contains('open'));
     });
     document.addEventListener('click', function (e) {
@@ -103,7 +104,10 @@ document.addEventListener('DOMContentLoaded', function () {
       if (dropdown === except) return;
       dropdown.classList.remove('open');
       var trigger = dropdown.querySelector(':scope > a');
-      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      if (trigger) {
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.blur();
+      }
     });
   }
 
@@ -118,10 +122,12 @@ document.addEventListener('DOMContentLoaded', function () {
     trigger.addEventListener('click', function (e) {
       if (!window.matchMedia('(max-width: 700px)').matches) return;
       e.preventDefault();
+      e.stopPropagation();
       var shouldOpen = !dropdown.classList.contains('open');
       closeDropdowns(shouldOpen ? dropdown : null);
       dropdown.classList.toggle('open', shouldOpen);
       trigger.setAttribute('aria-expanded', String(shouldOpen));
+      if (!shouldOpen) trigger.blur();
     });
   });
 

@@ -72,9 +72,11 @@ img { max-width: 100%; display: block; }
   font-size: 14px;
   font-weight: 600;
   color: rgba(255,255,255,0.85);
+  background: transparent;
   border-radius: 6px;
   transition: color 0.25s ease, background 0.25s ease;
   white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
 }
 .nav-menu a:hover,
 .nav-menu a.active,
@@ -805,13 +807,7 @@ img { max-width: 100%; display: block; }
   }
   .hamburger { display: flex; }
   .dropdown > a::after {
-    content: '▾';
-    margin-left: 12px;
-    transition: transform 0.25s ease;
-  }
-  .dropdown.open > a::after,
-  .dropdown:focus-within > a::after {
-    transform: rotate(180deg);
+    content: none;
   }
   .dropdown-box {
     display: block;
@@ -829,8 +825,7 @@ img { max-width: 100%; display: block; }
     animation: none;
     transition: max-height 0.3s ease, opacity 0.22s ease, margin-top 0.22s ease, border-color 0.22s ease;
   }
-  .dropdown.open .dropdown-box,
-  .dropdown:focus-within .dropdown-box {
+  .dropdown.open .dropdown-box {
     max-height: 620px;
     margin-top: 6px;
     opacity: 1;
