@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Bato School of Fisheries</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="Pictures/bsflogoo.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-page">
+
+<div id="auth-loading" class="admin-auth-loading">
+  <p>Checking sign-in status...</p>
+</div>
+
+<div id="admin-dashboard" class="admin-shell is-hidden">
+  <header class="admin-header">
+    <div class="admin-header-brand">
+      <div class="logo-circle logo-circle-small">
+        <img src="Pictures/bsflogoo.png" alt="BSF Logo" loading="lazy" decoding="async">
+      </div>
+      <div>
+        <p class="admin-header-label">Announcement Dashboard</p>
+        <h1>Bato School of Fisheries</h1>
+      </div>
+    </div>
+    <div class="admin-header-actions">
+      <span id="admin-email-display" class="admin-user-email"></span>
+      <button id="logout-btn" type="button" class="admin-btn admin-btn--outline">Log Out</button>
+      <a href="index.html" class="admin-btn admin-btn--outline">View Site</a>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <section class="admin-panel">
+      <div class="admin-panel-head">
+        <h2 id="form-title">Add Announcement</h2>
+        <button id="add-new-btn" type="button" class="admin-btn admin-btn--primary">+ Add New</button>
+      </div>
+
+      <form id="announce-form" class="admin-form admin-form--grid">
+        <input id="field-editing-id" type="hidden" value="">
+        <div class="admin-field">
+          <label for="field-title">Title</label>
+          <input id="field-title" type="text" required maxlength="120" placeholder="Enrollment is now open">
+        </div>
+
+        <div class="admin-field">
+          <label for="field-tag">Category</label>
+          <select id="field-tag" required>
+            <option value="Event">Event</option>
+            <option value="Election">Election</option>
+            <option value="News">News</option>
+            <option value="Announcement">Announcement</option>
+            <option value="Sports">Sports</option>
+            <option value="Academics">Academics</option>
+          </select>
+        </div>
+
+        <div class="admin-field">
+          <label for="field-date">Date</label>
+          <input id="field-date" type="date" required>
+        </div>
+
+        <div class="admin-field admin-field--full">
+          <label for="field-image">Image path or URL</label>
+          <input id="field-image" type="text" placeholder="Pictures/Enrollment.jpg">
+          <small>Use a file in your <code>Pictures/</code> folder or a full image URL.</small>
+          <img id="image-preview" class="admin-image-preview" alt="Preview" hidden>
+        </div>
+
+        <div class="admin-field admin-field--full">
+          <label for="field-body">Description</label>
+          <textarea id="field-body" rows="4" required maxlength="500" placeholder="Write the announcement details here..."></textarea>
+        </div>
+
+        <p id="form-error" class="admin-error admin-field--full" hidden></p>
+
+        <div class="admin-form-actions admin-field--full">
+          <button id="form-submit-btn" type="submit" class="admin-btn admin-btn--primary">Save Announcement</button>
+          <button id="form-cancel-btn" type="button" class="admin-btn admin-btn--ghost" hidden>Cancel Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="admin-panel">
+      <div class="admin-panel-head">
+        <h2>Live Preview</h2>
+        <p class="admin-panel-note">This is how announcements appear on the website.</p>
+      </div>
+      <div id="announce-preview" class="announce-grid announce-grid--preview">
+        <p class="admin-empty">Fill in the form above to preview the announcement card.</p>
+      </div>
+    </section>
+
+    <section class="admin-panel">
+      <div class="admin-panel-head">
+        <h2>Current Announcements</h2>
+      </div>
+      <div id="announce-list" class="admin-list">
+        <p class="admin-empty">Loading announcements...</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="toast" class="admin-toast" hidden role="status" aria-live="polite"></div>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>

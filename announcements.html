@@ -3,13 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home — Bato School of Fisheries</title>
-  <meta name="description" content="Official website of Bato School of Fisheries in Bato, Leyte, featuring school programs, strands, arts, sports, and technical-vocational education." />
+  <title>Announcements — Bato School of Fisheries</title>
+  <meta name="description" content="Latest announcements, events, and news from Bato School of Fisheries in Bato, Leyte." />
   <meta name="theme-color" content="#0a1f44" />
-  <meta property="og:title" content="Bato School of Fisheries" />
-  <meta property="og:description" content="Explore the programs, strands, events, and student opportunities at Bato School of Fisheries." />
-  <meta property="og:image" content="Pictures/bsfmainlogoo.jpg" />
-  <meta property="og:type" content="website" />
   <link rel="icon" type="image/png" href="Pictures/bsflogoo.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -28,6 +24,7 @@
   <ul class="nav-menu" id="navMenu">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="announcements.html" class="active">Announcements</a></li>
     <li class="dropdown">
       <a href="Strands.html" class="spa-btn">Strands</a>
       <div class="dropdown-box">
@@ -66,46 +63,18 @@
 
 <div class="page-body">
 
-  <section class="hero">
+  <div class="inner-hero announce-hero">
     <div class="overlay"></div>
-    <div class="hero-content">
-      <p class="hero-tag">Welcome to</p>
-      <h1 class="hero-title">Bato School<br><span>of Fisheries</span></h1>
-      <p class="hero-desc">Helping students grow in fisheries, arts, and sports since 1985. Building future leaders in our community.</p>
-      <div class="hero-btns">
-        <a href="about.html" class="btn-gold">Discover More</a>
-        <a href="Strands.html" class="btn-outline">Our Strands</a>
-      </div>
+    <div class="inner-hero-content">
+      <p class="hero-tag">Stay Updated</p>
+      <h1>School Announcements</h1>
+      <p>Events, enrollment updates, and important news from Bato School of Fisheries.</p>
     </div>
-  </section>
+  </div>
 
   <section class="sec-light reveal">
     <div class="container">
-      <h2 class="sec-title">Why Choose BSF?</h2>
-      <div class="cards">
-        <div class="card reveal-card"><div class="card-icon"></div><h3>Academic Excellence</h3><p>Consistently producing top-performing students in regional and national competitions.</p></div>
-        <div class="card reveal-card"><div class="card-icon"></div><h3>Strong Community</h3><p>Building unity through collaboration among students, teachers, and parents.</p></div>
-        <div class="card reveal-card"><div class="card-icon"></div><h3>Holistic Development</h3><p>We cultivate talent through arts, sports, community service, and leadership.</p></div>
-        <div class="card reveal-card"><div class="card-icon"></div><h3>Green Environment</h3><p>Promoting sustainability through clean, eco-friendly practices and environmental programs.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec-dark reveal">
-    <div class="container stats">
-      <div><span class="stat-num">2100+</span><span class="stat-label">Students Enrolled</span></div>
-      <div><span class="stat-num">100</span><span class="stat-label">Qualified Teachers</span></div>
-      <div><span class="stat-num">20</span><span class="stat-label">Non-Teaching Staff</span></div>
-    </div>
-  </section>
-
-  <section class="sec-light reveal">
-    <div class="container">
-      <div class="sec-head-row">
-        <h2 class="sec-title">Recent Events</h2>
-        <a href="announcements.html" class="sec-link">View all announcements →</a>
-      </div>
-      <div id="announce-grid" class="announce-grid" data-limit="2">
+      <div id="announce-grid" class="announce-grid" data-limit="0">
         <article class="announce-card reveal-card">
           <div class="announce-img">
             <img src="Pictures/Enrollment.jpg" alt="Enrollment announcement" loading="lazy" decoding="async">
@@ -133,25 +102,6 @@
     </div>
   </section>
 
-  <section class="sec-dark reveal">
-    <div class="container">
-      <h2 class="sec-title white">Welcome to Bato School of Fisheries!</h2>
-      <p class="video-note">
-        Watch how Bato School of Fisheries shapes the next generation.
-      </p>
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/zSPJMoR3WU4"
-          title="Bato School of Fisheries Video"
-          frameborder="0"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </section>
-
 </div>
 
 <footer class="footer">
@@ -166,6 +116,7 @@
       <h4>Quick Links</h4>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
+      <a href="announcements.html">Announcements</a>
       <a href="Strands.html">Strands</a>
       <a href="Arts.html">Special Program in Arts</a>
       <a href="Sports.html">Special Program in Sports</a>
@@ -184,7 +135,6 @@
   </div>
   <div class="footer-bottom">© Bato School of Fisheries · DepEd Division of Leyte · All Rights Reserved</div>
 </footer>
-
 
 <script type="module" src="announcements.js"></script>
 <script src="script.js"></script>
