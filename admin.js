@@ -283,6 +283,9 @@ function getFormPreviewData() {
 function updatePreview() {
   if (!announcePreview) return;
   announcePreview.innerHTML = buildAnnounceCard(getFormPreviewData());
+  announcePreview.querySelectorAll(".reveal-card").forEach(function (card) {
+    card.classList.add("visible");
+  });
 }
 
 function highlightEditingItem(id) {
@@ -402,6 +405,7 @@ formCancelBtn.addEventListener("click", resetForm);
 
 [fieldTitle, fieldBody, fieldDate, fieldTag, fieldImage].forEach(function (field) {
   field.addEventListener("input", updatePreview);
+  field.addEventListener("change", updatePreview);
 });
 
 fieldImage.addEventListener("input", function () {
