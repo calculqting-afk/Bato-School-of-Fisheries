@@ -38,11 +38,92 @@ const fieldDate = document.getElementById("field-date");
 const fieldTag = document.getElementById("field-tag");
 const fieldImage = document.getElementById("field-image");
 const imagePreview = document.getElementById("image-preview");
+const fieldImageFile = document.getElementById("field-image-file");
+const browseImageBtn = document.getElementById("browse-image-btn");
+const removeImageBtn = document.getElementById("remove-image-btn");
+const imageUploadStatus = document.getElementById("image-upload-status");
 
 let unsubscribeAnnouncements = null;
 let seedingInProgress = false;
 let cleanupInProgress = false;
 let announcementsById = {};
+let localImagePreviewUrl = "";
+let imageUploadInProgress = false;
+let imageUploadRequestId = 0;
+const MAX_EMBEDDED_IMAGE_LENGTH = 800000;
+
+function revokeLocalImagePreview() {
+  if (localImagePreviewUrl) URL.revokeObjectURL(localImagePreviewUrl);
+  localImagePreviewUrl = "";
+}
+
+function setImagePreview(url) {
+  if (!url) {
+    imagePreview.hidden = true;
+    imagePreview.removeAttribute("src");
+    return;
+  }
+  imagePreview.src = url;
+  imagePreview.hidden = false;
+  removeImageBtn.hidden = false;
+}
+
+function cancelImageUpload() {
+  imageUploadRequestId += 1;
+  imageUploadInProgress = false;
+  browseImageBtn.disabled = false;
+}
+
+function clearSelectedImage(message) {
+  cancelImageUpload();
+  revokeLocalImagePreview();
+  fieldImage.value = "";
+  fieldImageFile.value = "";
+  setImagePreview("");
+  removeImageBtn.hidden = true;
+  imageUploadStatus.textContent = message || "";
+  updatePreview();
+}
+
+function optimizeImage(file) {
+  return new Promise(function (resolve) {
+    var source = new Image();
+    var sourceUrl = URL.createObjectURL(file);
+
+    source.onload = function () {
+      var maxDimension = 1200;
+      var scale = Math.min(1, maxDimension / Math.max(source.width, source.height));
+      var canvas = document.createElement("canvas");
+      canvas.width = Math.round(source.width * scale);
+      canvas.height = Math.round(source.height * scale);
+      canvas.getContext("2d").drawImage(source, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(sourceUrl);
+      canvas.toBlob(function (blob) {
+        resolve(blob || file);
+      }, "image/jpeg", 0.72);
+    };
+
+    source.onerror = function () {
+      URL.revokeObjectURL(sourceUrl);
+      resolve(file);
+    };
+    source.src = sourceUrl;
+  });
+}
+
+function readImageAsDataUrl(file) {
+  return new Promise(function (resolve, reject) {
+    var reader = new FileReader();
+    reader.onload = function () { resolve(reader.result); };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function updateImagePreviewFromField() {
+  if (localImagePreviewUrl) return;
+  setImagePreview(fieldImage.value.trim());
+}
 
 function getEditingId() {
   return fieldEditingId.value || null;
@@ -174,14 +255,17 @@ function cleanupDuplicateAnnouncements(snapshot) {
 }
 
 function resetForm() {
+  cancelImageUpload();
+  revokeLocalImagePreview();
   setEditingId(null);
   announceForm.reset();
   formTitle.textContent = "Add Announcement";
   formSubmitBtn.textContent = "Save Announcement";
   formCancelBtn.hidden = true;
   formError.hidden = true;
-  imagePreview.hidden = true;
-  imagePreview.removeAttribute("src");
+  imageUploadStatus.textContent = "";
+  setImagePreview("");
+  removeImageBtn.hidden = true;
   highlightEditingItem(null);
   updatePreview();
 }
@@ -191,7 +275,7 @@ function getFormPreviewData() {
     title: fieldTitle.value.trim() || "Announcement title",
     body: fieldBody.value.trim() || "Announcement description will appear here.",
     tag: fieldTag.value || "News",
-    imageUrl: fieldImage.value.trim(),
+    imageUrl: localImagePreviewUrl || fieldImage.value.trim(),
     displayDate: fieldDate.value ? formatDisplayDate(fieldDate.value) : "Select a date"
   };
 }
@@ -218,13 +302,11 @@ function fillFormFromAnnouncement(id) {
   fieldImage.value = data.imageUrl || "";
   fieldDate.value = data.eventDate || "";
 
-  if (data.imageUrl) {
-    imagePreview.src = data.imageUrl;
-    imagePreview.hidden = false;
-  } else {
-    imagePreview.hidden = true;
-    imagePreview.removeAttribute("src");
-  }
+  cancelImageUpload();
+  revokeLocalImagePreview();
+  fieldImageFile.value = "";
+  imageUploadStatus.textContent = "";
+  setImagePreview(data.imageUrl || "");
 
   formTitle.textContent = "Edit Announcement";
   formSubmitBtn.textContent = "Update Announcement";
@@ -323,14 +405,71 @@ formCancelBtn.addEventListener("click", resetForm);
 });
 
 fieldImage.addEventListener("input", function () {
-  var url = fieldImage.value.trim();
-  if (!url) {
-    imagePreview.hidden = true;
-    imagePreview.removeAttribute("src");
+  cancelImageUpload();
+  revokeLocalImagePreview();
+  fieldImageFile.value = "";
+  imageUploadStatus.textContent = "";
+  updateImagePreviewFromField();
+});
+
+browseImageBtn.addEventListener("click", function () {
+  fieldImageFile.click();
+});
+
+fieldImageFile.addEventListener("change", function () {
+  var file = fieldImageFile.files && fieldImageFile.files[0];
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    imageUploadStatus.textContent = "Please choose an image file.";
+    fieldImageFile.value = "";
     return;
   }
-  imagePreview.src = url;
-  imagePreview.hidden = false;
+
+  revokeLocalImagePreview();
+  localImagePreviewUrl = URL.createObjectURL(file);
+  setImagePreview(localImagePreviewUrl);
+  updatePreview();
+  imageUploadInProgress = true;
+  browseImageBtn.disabled = true;
+  imageUploadStatus.textContent = "Compressing image...";
+  var requestId = ++imageUploadRequestId;
+
+  optimizeImage(file)
+    .then(function (compressedImage) {
+      if (requestId !== imageUploadRequestId) return null;
+      imageUploadStatus.textContent = "Preparing image...";
+      return readImageAsDataUrl(compressedImage);
+    })
+    .then(function (dataUrl) {
+      if (!dataUrl) return;
+      if (requestId !== imageUploadRequestId) return;
+      if (dataUrl.length > MAX_EMBEDDED_IMAGE_LENGTH) {
+        throw new Error("image-too-large");
+      }
+      fieldImage.value = dataUrl;
+      revokeLocalImagePreview();
+      setImagePreview(dataUrl);
+      imageUploadStatus.textContent = "Image ready to save.";
+      updatePreview();
+    })
+    .catch(function (error) {
+      if (requestId !== imageUploadRequestId) return;
+      imageUploadStatus.textContent = error && error.message === "image-too-large"
+        ? "Image is still too large. Choose a smaller image."
+        : "Could not prepare this image. Please try another one.";
+      fieldImage.value = "";
+      updatePreview();
+    })
+    .finally(function () {
+      if (requestId !== imageUploadRequestId) return;
+      imageUploadInProgress = false;
+      browseImageBtn.disabled = false;
+    });
+});
+
+removeImageBtn.addEventListener("click", function () {
+  clearSelectedImage("Image removed.");
 });
 
 announceList.addEventListener("click", function (e) {
@@ -374,6 +513,12 @@ announceForm.addEventListener("submit", function (e) {
   var tag = fieldTag.value;
   var imageUrl = fieldImage.value.trim();
   var currentEditingId = getEditingId();
+
+  if (imageUploadInProgress) {
+    formError.textContent = "Please wait for the image upload to finish.";
+    formError.hidden = false;
+    return;
+  }
 
   if (!title || !body || !eventDate) {
     formError.textContent = "Title, description, and date are required.";

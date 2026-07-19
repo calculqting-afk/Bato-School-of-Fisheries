@@ -1166,6 +1166,19 @@ img { max-width: 100%; display: block; }
   border-radius: 4px;
 }
 
+.admin-image-upload {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.admin-image-upload-status {
+  font-size: 13px;
+  color: var(--gray);
+}
+
 .admin-form-actions {
   display: flex;
   gap: 10px;

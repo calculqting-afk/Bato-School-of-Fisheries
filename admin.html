@@ -66,7 +66,13 @@
         <div class="admin-field admin-field--full">
           <label for="field-image">Image path or URL</label>
           <input id="field-image" type="text" placeholder="Pictures/Enrollment.jpg">
-          <small>Use a file in your <code>Pictures/</code> folder or a full image URL.</small>
+          <div class="admin-image-upload">
+            <input id="field-image-file" type="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+            <button id="browse-image-btn" type="button" class="admin-btn admin-btn--ghost">Browse photos or files</button>
+            <button id="remove-image-btn" type="button" class="admin-btn admin-btn--danger" hidden aria-label="Remove selected image">× Remove image</button>
+            <span id="image-upload-status" class="admin-image-upload-status" aria-live="polite"></span>
+          </div>
+          <small>Paste an image path or URL, or browse to compress and save an image with this announcement.</small>
           <img id="image-preview" class="admin-image-preview" alt="Preview" hidden>
         </div>
 
